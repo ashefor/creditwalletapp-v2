@@ -1,0 +1,54 @@
+{
+  "name": "creditwalletapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.11.0",
+    "@react-native-community/datetimepicker": "2.4.0",
+    "@react-native-community/masked-view": "0.1.10",
+    "@react-native-community/slider": "3.0.0",
+    "@react-native-community/toolbar-android": "0.1.0-rc.2",
+    "axios": "^0.19.2",
+    "native-base": "^2.13.12",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "0.63.0",
+    "react-native-deep-linking": "^2.2.0",
+    "react-native-gesture-handler": "~1.6.0",
+    "react-native-picker-select": "^7.0.0",
+    "react-native-raw-bottom-sheet": "^2.2.0",
+    "react-native-reanimated": "~1.9.0",
+    "react-native-root-toast": "^3.2.1",
+    "react-native-safe-area-context": "~3.0.7",
+    "react-native-screens": "~2.9.0",
+    "react-native-snap-carousel": "^3.9.0",
+    "react-native-tab-view": "^2.14.0",
+    "react-native-vector-icons": "^7.0.0",
+    "react-native-web": "~0.11.7",
+    "react-navigation": "^4.3.9",
+    "react-navigation-fluid-transitions": "^0.3.2",
+    "react-navigation-stack": "^2.5.0",
+    "react-navigation-tabs": "^2.8.13",
+    "react-navigation-transitions": "^1.0.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.5.1",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
