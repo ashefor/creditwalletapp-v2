@@ -19,6 +19,9 @@ class LoginScreen extends Component {
         errorMsg: null
     };
 
+    componentDidMount() {
+        console.log(this.props.navigation.dangerouslyGetParent().state.routes)
+    }
     handleLogin = () => {
         this.setState({
             errorMsg: null

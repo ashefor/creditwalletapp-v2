@@ -60,6 +60,7 @@ class LiquidateLoan extends Component {
             method: 'POST',
             body: JSON.stringify(loan_id),
         }
+        console.log(loan_id)
        if(this._isMounted) {
         this.setState({ isLoading: value })
         return new Promise((resolve, reject) => {

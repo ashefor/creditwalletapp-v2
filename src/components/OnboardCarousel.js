@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import { StyleSheet, View, Image, Text, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, View, Image, Text, ScrollView, Dimensions, YellowBox } from 'react-native';
 import { resWidth, resHeight } from '../utils/utils';
 import CustomText from './CustomText';
 const { width } = Dimensions.get('window')
@@ -40,7 +40,7 @@ class OnboardCarousel extends Component {
                         this.scrollRef.current.scrollTo({
                             animated: true,
                             y: 0,
-                            x: width * this.state.selectedIndex
+                            x: resWidth(90) * this.state.selectedIndex
                         })
                     }
                 )
@@ -55,13 +55,14 @@ class OnboardCarousel extends Component {
         const viewSize = event.nativeEvent.layoutMeasurement.width;
         const contentOffset = event.nativeEvent.contentOffset.x;
         const selectedIndex = Math.floor(contentOffset / viewSize);
-        this.setState({ selectedIndex })
+        // console.log(selectedIndex)
+        // this.setState({ selectedIndex })
     }
     render() {
         // const {images} = this.props;
         const { selectedIndex } = this.state;
         return (
-            <View style={{ height: '100%', width: '100%' }}>
+            <View style={{ flex: 1, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
                 <ScrollView
                     showsHorizontalScrollIndicator={false}
                     horizontal pagingEnabled onMomentumScrollEnd={this.setSelectedIndex}
@@ -70,11 +71,13 @@ class OnboardCarousel extends Component {
                     {images.map((image, index) => (
                         <View
                             key={index} style={styles.backgroundImage}>
-                            <View style={{ alignItems: 'center', height: '100%', width: '100%' }}>
-                                <Image
+                            <View style={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
+                               <View style={{width: width, height: '70%'}}>
+                               <Image
                                     source={(image.imgUrl)}
                                     style={styles.onboardImage}
                                 />
+                               </View>
                                 <View style={styles.onboardText}>
                                     <CustomText style={{ fontSize: 15, fontFamily: 'Baloo2-Regular' }}>{image.text}</CustomText>
                                 </View>
@@ -99,16 +102,18 @@ export default OnboardCarousel;
 
 const styles = StyleSheet.create({
     onboardImage: {
-        height: '60%',
-        width: '70%',
+        height: '100%',
+        width: '100%',
+        resizeMode: 'contain'
         // marginBottom: resHeight(5)
     },
     onboardText: {
-        marginTop: resHeight(3)
+        marginTop: resHeight(5)
     },
     backgroundImage: {
         height: '100%',
-        width: width,
+        width: resWidth(90),
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -118,7 +123,6 @@ const styles = StyleSheet.create({
         bottom: 0,
         height: resHeight(10),
         display: 'flex',
-        // backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'
